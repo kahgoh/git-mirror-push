@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Commit hook that automatically pushes changes to other repositories. 
+#
+# To use, put this in the Git repository's hooks directory and rename to "post-receive". 
+
+# List repositories to automatically push to in this array.
+mirrors=(/home/git/repo1.git /home/git/repo2.git)
+
+refSpec=""
+while read old new refName
+do
+    refSpec=${refSpec}"  ${refName}"
+done
+
+for repo in "${mirrors[@]}"
+do
+    git push ${repo} ${refSpec}
+done
