@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Commit hook that automatically pushes received changes to other
+# Receive hook that automatically pushes received changes to other
 # repositories. 
 #
 # To use, copy this script into your repository's .git/hooks directory
